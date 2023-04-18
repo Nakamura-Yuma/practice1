@@ -8,6 +8,7 @@ def main():
     bg_img = pg.image.load("ProjExD2023/ex01/fig/pg_bg.jpg")
     kk_img = pg.image.load("ProjExD2023/ex01/fig/3.png")
     kk_img = pg.transform.flip(kk_img, True, False)
+    kk_imgs = [kk_img, pg.transform.rotozoom(kk_img, 10, 1.0), pg.transform.rotozoom(kk_img, -10, 1.0)] 
     tmr = 0
 
     while True:
@@ -16,6 +17,7 @@ def main():
 
         tmr += 1
         screen.blit(bg_img, [0, 0])
+        screen.blit(kk_imgs[tmr % 2], [300,200])
 
         pg.display.update()
         clock.tick(100)
